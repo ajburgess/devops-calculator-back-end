@@ -7,6 +7,10 @@ app.use(bodyParser.json());
 app.disable('etag');
 app.use(cors());
 
+app.get('/health', (req, res) => {
+    res.status(200).send('Healthy!');
+});
+
 app.get("/add/:num1/:num2", (req, res) => {
     const num1 = parseFloat(req.params.num1);
     const num2 = parseFloat(req.params.num2);
